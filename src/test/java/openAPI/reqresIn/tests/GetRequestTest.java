@@ -17,8 +17,8 @@ public class GetRequestTest {
 
         int userId = 2;
 
+        // Предусловие
         UserData userData = given()
-                // Предусловие
                 .baseUri(BASE_URL)
                 .header("x-api-key", "reqres-free-v1")
                 .log().all()

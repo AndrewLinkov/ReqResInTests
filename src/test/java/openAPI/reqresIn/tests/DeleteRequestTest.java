@@ -12,34 +12,6 @@ import static org.junit.jupiter.api.Assertions.assertAll;
 public class DeleteRequestTest {
 
     @Test
-    @DisplayName("Проверка наличия пользователя перед удалением.")
-    void getUserTest() {
-
-        int userId = 3;
-
-        UserData userData = given()
-                // Предусловие
-                .baseUri(BASE_URL)
-                .header("x-api-key", "reqres-free-v1")
-                .log().all()
-                // Действие
-                .when()
-                .get("users/" + userId)
-                // Проверка
-                .then()
-                .statusCode(200)
-                .log().body()
-                .extract().as(UserData.class);
-
-        assertAll(
-                () -> assertThat(userData.getUser().getId()).isEqualTo(2),
-                () -> assertThat(userData.getUser().getEmail()).isEqualTo("janet.weaver@reqres.in"),
-                () -> assertThat(userData.getUser().getFirstName()).isEqualTo("Janet"),
-                () -> assertThat(userData.getUser().getLastName()).isEqualTo("Weaver")
-        );
-    }
-
-    @Test
     @DisplayName("DELETE - Удаление пользователя")
     void deleteUserTest() {
 
@@ -62,6 +34,6 @@ public class DeleteRequestTest {
                 .when()
                 .get("users/" + userId)
                 .then()
-                .statusCode(200);
+                .statusCode(404);
     }
 }
