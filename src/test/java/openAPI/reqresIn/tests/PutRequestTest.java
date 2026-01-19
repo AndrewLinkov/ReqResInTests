@@ -54,8 +54,8 @@ public class PutRequestTest {
         bodyUpdateData.setJob("zion resident");
         bodyUpdateData.setName("morpheus");
 
+        // Предусловие
         UpdateResponseModel response = given()
-                // Предусловие
                 .baseUri(BASE_URL)
                 .contentType(JSON)
                 .body(bodyUpdateData)
@@ -66,6 +66,7 @@ public class PutRequestTest {
                 .put("users/" + userId)
                 // Проверка
                 .then()
+
                 .extract().as(UpdateResponseModel.class);
 
         assertThat(response.getName()).isEqualTo("morpheus");

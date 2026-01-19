@@ -1,13 +1,10 @@
 package openAPI.reqresIn.tests;
 
-import openAPI.reqresIn.model.UserData;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import static io.restassured.RestAssured.given;
 import static openAPI.reqresIn.tests.BaseTest.BASE_URL;
-import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
-import static org.junit.jupiter.api.Assertions.assertAll;
 
 public class DeleteRequestTest {
 
